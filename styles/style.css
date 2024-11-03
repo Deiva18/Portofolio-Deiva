@@ -1,0 +1,497 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+:root {
+  --primaryTextColor: #232e35; /* Untuk title atau judul */
+  --secondaryTextColor: #656d72; /* Untuk text biasa seperti paragraph contohnya */
+
+  --borderColor: #f1f1f1;
+  --lineColor: #d9d9d9; /* untuk line di pre-title */
+
+  --primaryBackgroundColor: #fff;
+  --secondaryBackgroundColor: #fbfbfb;
+  --thirdBackgroundColor: #f5f3fe;
+
+  --primaryIconColor: #7e74f1;
+  --primaryIconColorHover: #5d51e8;
+
+  --sectionPadding: 6rem 0;
+
+  --itemBorderRadius: 0.7rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+  color: #798645;
+}
+
+p {
+  font-size: 1rem; /* 16 px */
+  line-height: 1.9rem; /*30.4 px */
+}
+
+p,
+span,
+label,
+input,
+textarea,
+li {
+  color: #626f47;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* End Preparation */
+
+.main-container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1200px) {
+  .main-container {
+    width: 90%;
+  }
+}
+
+/* Buttons */
+.btn {
+  padding: 1rem 1.5rem;
+  background: #798645;
+  border: 1.5px solid #fefae0;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.btn:hover {
+  background: #fefae0;
+  box-shadow: #fefae0 0px 3px 5px;
+}
+
+/* Titles */
+.section-title {
+  margin: 1rem 0 4rem;
+  font-size: 2rem;
+  text-align: center;
+  color: #798645
+}
+
+.pre-title {
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  color: #798645;
+  position: relative;
+  padding-left: 40px;
+  width: fit-content;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.pre-title::before {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background: var(--lineColor);
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 50%;
+}
+
+/* Layouts */
+.grid-3 {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr; use this first, use code below when its time for explaining responsive design part */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+}
+
+/* --- Logo and Navigation Menu --- */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.logo a {
+  color: #798645;
+}
+
+/* Navigation Menu */
+nav ul li {
+  display: flex;
+  align-items: center;
+}
+
+nav ul li a {
+  color: #798645;
+  
+}
+
+/* Burger - Save for later on video */
+.burger div {
+  width: 25px;
+  height: 2px;
+  background-color: #798645;
+  margin: 7px;
+  transition: all 0.3s;
+  z-index: 99;
+}
+
+.burger {
+  display: none;
+  z-index: 99;
+  position: fixed;
+  top: 33px;
+  right: 35px;
+}
+
+/* Hero Section */
+#hero {
+  height: 720px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* We're not going to use automatic template columns, because we need to know when the columns is go below. So we can exchange the order of the element */
+  align-items: center;
+}
+
+.hero-name {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0.5rem 0 1rem;
+  color: #798645;
+}
+
+.hero-name span {
+  color: #626f47;
+}
+
+.hero-right img {
+  width: 75%;
+}
+
+.hero-right {
+  display: flex;
+  justify-content: center;
+}
+
+/* Services Section */
+#services {
+  background-color: #fefae0;
+  padding: var(--sectionPadding);
+  color: #ffffff
+}
+
+.services .pre-title {
+  margin: 0 auto;
+  color: #000
+}
+
+.services-title {
+  text-align: center;
+  color: #798645
+}
+
+.service {
+  padding: 1rem 1rem;
+  text-align: center;
+  background: #798645;
+  border-radius: var(--itemBorderRadius);
+  color: #ffffff
+}
+
+.service h4 {
+  margin: 5rem;
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.service-icon {
+  background: var(--thirdBackgroundColor);
+  width: fit-content;
+  margin: 10 rem;
+}
+
+.service-icon svg {
+  fill: #fefae0 !important;
+}
+
+.service-icon {
+  background: transparent;
+  width: fit-content;
+  margin: 10 rem;
+}
+
+.service-icon svg {
+  fill: var(--primaryIconColor);
+}
+
+/* Portfolios */
+#portfolios {
+  padding: var(--sectionPadding);
+}
+
+.portfolio {
+  border-radius: var(--itemBorderRadius);
+  overflow: hidden; /* supaya gambar yang diatas itu dia ngikut border radiusnya, karena yang dikasih border radius disini adalah div portfolio ini */
+  border: 1px solid #798645;
+}
+
+.portfolio-cover {
+  height: 250px;
+}
+
+.portfolio img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portfolio-info {
+  padding: 2rem 1.5rem;
+}
+
+.portfolio-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.portfolio h4 {
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.portfolio-title a svg:hover {
+  fill: #798645;
+}
+
+.portfolio-title a svg {
+  transition: 0.2s ease-in-out;
+}
+
+.portfolio-tags {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.portfolio-tags div {
+  font-size: 0.9rem;
+  border: 1px solid var(--borderColor);
+  padding: 0.4rem 1rem;
+  color: var(--secondaryTextColor);
+}
+
+.portfolio-tags div {
+  font-size: 0.9rem;
+  border: 1px solid var(--borderColor);
+  padding: 0.4rem 1rem;
+  color: var(--secondaryTextColor);
+}
+
+/* General Section Styles */
+/* CSS untuk halaman skill */
+#skills {
+  background-color: #fefae0;
+  padding: 60px 0;
+}
+
+.skills {
+  text-align: center;
+  color: #798645;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.section-title {
+  margin-bottom: 30px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  justify-content: center;
+}
+
+.skill {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.skill h2 {
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.skill-description {
+  margin-bottom: 20px;
+  color: #ffffff
+}
+
+.skill-description ul {
+  padding-left: 20px;
+  color: #ffffff
+}
+
+/* CSS untuk merapikan tampilan gambar */
+.skill-images {
+  display: flex;
+  justify-content: center;
+}
+
+.skill-image {
+  margin: 0 10px;
+}
+
+.skill-image img {
+  max-width: 100px; /* Atur lebar maksimum gambar */
+  height: auto; /* Biarkan tinggi gambar menyesuaikan proporsi */
+}
+
+
+/* Contact Section */
+#contact {
+  padding: var(--sectionPadding);
+  background-color: #ffffff;
+}
+
+.contact {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr; */
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+  color: #0000cc
+}
+
+.contact-title {
+  font-size: 2rem;
+  color: #798645;
+}
+
+.contact-form div {
+  margin-bottom: 1.4rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem 1.3rem;
+  font-family: "Roboto", sans-serif;
+  background: #fefae0;
+  border: 1px solid #798645;
+  border-radius: 3px;
+  resize: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #798645;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border: 1px solid #000;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 0.75rem 1.3rem;
+  background-color: #798645;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.btn-submit:hover {
+  background-color: #626f47;
+}
+
+/* Contact Section - Right Side */
+.contact-item {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.contact-item-icon {
+  background: #798645;
+  /* padding: 0.8rem 1rem; */
+  width: 53px;
+  height: 53px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-item-icon svg {
+  fill: #fefae0 !important;
+}
+
+.contact-item-detail h4 {
+  margin-bottom: 0.6rem;
+  color: #798645
+}
+
+/* Footer Section */
+footer {
+  padding: 4rem 0;
+  background: #fefae0;
+  text-align: center;
+}
+
+.footer-icons {
+  margin-bottom: 1rem;
+}
+
+.footer-icons a {
+  margin: 0 0.5rem;
+}
+
+.footer-icons svg {
+  fill: #798645;
+}
+
+.footer-icons a:hover svg {
+  fill: #626f47;
+}
